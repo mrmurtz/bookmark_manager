@@ -14,4 +14,8 @@ feature 'Signing up' do
     expect(current_path).to eq '/users/new'
     expect(page).to have_content ('How hard is it to re-enter the same password, srsly!')
     end
+
+    scenario 'a user can\'t sign up without entering an email' do
+      expect{sign_up(email: nil)}.not_to change(User, :count)
+    end
 end

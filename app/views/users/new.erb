@@ -3,18 +3,18 @@
 
   <label for='email'>
     Email:
-    <input type="text" name="email" value='<%= @user.email %>'/>
+    <input id="email" type="email" placeholder="Email" name="email" value='<%= @user.email %>' required>
   </label>
 
   <label for='password'>
     Password:
-    <input type="password" name="password"/>
+    <input id="password" type="password" placeholder="Password" name="password">
   <label/>
 
   <label for='password_confirmation'>
     Please confirm your password:
-    <input type="password" name="password_confirmation"/>
+    <input id="password_confirmation" type="password" name="password_confirmation">
   <label/>
 
-  <input type="submit" value="Sign up"/>
+  <input type="submit" value="Sign up">
 </form>
