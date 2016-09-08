@@ -8,4 +8,10 @@ feature 'Signing up' do
   scenario 'user sign up requires a matching password' do
     expect{ sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
   end
+
+  scenario 'browser stays on users/new page if mismatching password' do
+    sign_up(password_confirmation: 'wrong')
+    expect(current_path).to eq '/users/new'
+    expect(page).to have_content ('How hard is it to re-enter the same password, srsly!')
+    end
 end
