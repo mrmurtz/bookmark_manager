@@ -5,13 +5,18 @@
   </head>
 
   <body>
+
     <% if current_user %>
       Welcome, <%= current_user.email %>
     <% end %>
     <%= yield %>
-    <% if flash.now[:wrong_password] %>
-        <br>
-        <br> <%= flash.now[:wrong_password] %>
+    <% if flash.now[:errors] %>
+          <ul id="errors">
+            <% flash.now[:errors].each do |message| %>
+            <li><%= message %></li>
+          </ul>
+      <% end %>
     <% end %>
+
   </body>
 </html>
