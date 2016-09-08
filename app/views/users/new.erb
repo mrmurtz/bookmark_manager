@@ -1,13 +1,16 @@
 <h1> Create an account </h1>
 <form action="/users/new" method="post">
+
   <label for='email'>
     Email:
-    <input type="text" name="email"/>
+    <input type="text" name="email" value='<%= @user.email %>'/>
   </label>
+
   <label for='password'>
     Password:
     <input type="password" name="password"/>
   <label/>
+
   <label for='password_confirmation'>
     Please confirm your password:
     <input type="password" name="password_confirmation"/>
@@ -15,7 +18,3 @@
 
   <input type="submit" value="Sign up"/>
 </form>
-<% if flash[:wrong_password] %>
-<br>
-    <%= flash[:wrong_password] %>
-<% end %>

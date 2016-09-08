@@ -9,5 +9,9 @@
       Welcome, <%= current_user.email %>
     <% end %>
     <%= yield %>
+    <% if flash.now[:wrong_password] %>
+        <br>
+        <br> <%= flash.now[:wrong_password] %>
+    <% end %>
   </body>
 </html>
