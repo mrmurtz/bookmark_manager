@@ -36,6 +36,12 @@ class BookmarkManager < Sinatra::Base
     end
   end
 
+  post '/users/logout' do
+    session[:user_id] = nil
+    flash[:bye] = "See you again soon"
+    redirect '/links'
+  end
+
   post '/users/new' do
     @user = User.create(email: params[:email],
                        password: params[:password],
