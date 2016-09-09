@@ -1,8 +1,8 @@
 feature 'Signing up' do
   scenario "when user signs up user count increases by one" do
     expect{ sign_up }.to change(User, :count).by 1
-    expect(page).to have_content('Welcome, summerisawesome@gmail.com')
-    expect(User.first.email).to eq('summerisawesome@gmail.com')
+    expect(page).to have_content('Welcome, murtz@gmail.com')
+    expect(User.first.email).to eq('murtz@gmail.com')
   end
 
   scenario 'user sign up requires a matching password' do
@@ -28,4 +28,5 @@ feature 'Signing up' do
       expect{sign_up}.not_to change(User, :count)
       expect(page).to have_content ('Email is already taken')
     end
+
 end

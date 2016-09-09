@@ -12,11 +12,28 @@ class BookmarkManager < Sinatra::Base
 
   get '/' do
     "welcome to book mark manager extraordinaire"
+    redirect '/links'
   end
 
   get '/users/new' do
     @user = User.new
     erb :'users/new'
+  end
+
+  get '/users/login' do
+    erb :'users/login'
+  end
+
+  post '/users/login' do
+        # if email exists on db, check password passed in params matches db password
+    user = User.user_exists(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect '/links'
+    else
+      flash[:failed_login] = "Incorrect email or password"
+      redirect 'users/login'
+    end
   end
 
   post '/users/new' do
