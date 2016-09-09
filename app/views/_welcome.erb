@@ -1,0 +1,8 @@
+<% if current_user %>
+  Welcome, <%= current_user.email %>
+
+  <form action="/users/logout" method="post">
+    <input type="submit" value="Log out">
+  </form>
+
+<% end %>
